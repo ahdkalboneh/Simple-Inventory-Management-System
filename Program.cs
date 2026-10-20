@@ -54,7 +54,16 @@
             inventory.AddProduct(Pr);
             Console.WriteLine("✅ The Product added to the inventory successfully.");
 
-            break;  
+            break;
+              
+            case 2:
+            inventory.ShowInventory();
+            break;
+
+            case 5:
+            Console.WriteLine("Closing the Inventory Management System, Bye.");
+            break;
+
             default:
             Console.WriteLine("❌ Invalid choice. Please try again.");
             break;
@@ -62,6 +71,5 @@
         
        } while (Choice != 5);
 
-    Console.WriteLine("Closing the Inventory Management System, Bye.");
     }
 }
