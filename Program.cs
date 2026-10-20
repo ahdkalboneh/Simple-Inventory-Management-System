@@ -53,11 +53,38 @@
 
             inventory.AddProduct(Pr);
             Console.WriteLine("✅ The Product added to the inventory successfully.");
-
             break;
-              
+
             case 2:
             inventory.ShowInventory();
+            break;
+
+            case 3:
+            if (inventory.IsEmpty())
+            {
+                Console.WriteLine("Inventory is empty.");
+                break;
+            }
+            
+            string? ProductName;
+            while (true)
+            {
+            Console.WriteLine("Please enter the name of the product:");
+            ProductName = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(ProductName))
+            {
+                break;
+            }
+            Console.WriteLine("Product name cannot be empty.");
+            }
+            if (inventory.IsExist(ProductName))
+            {
+            inventory.UpdateProduct(ProductName);
+            }
+            else
+            {
+            Console.WriteLine("The product does not exist.");
+            }
             break;
 
             case 5:
