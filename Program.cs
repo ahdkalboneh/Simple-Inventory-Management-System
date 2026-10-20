@@ -65,11 +65,11 @@
                 Console.WriteLine("Inventory is empty.");
                 break;
             }
-            
+
             string? ProductName;
             while (true)
             {
-            Console.WriteLine("Please enter the name of the product:");
+            Console.WriteLine("Please enter the name of the product to update:");
             ProductName = Console.ReadLine();
             if (!string.IsNullOrWhiteSpace(ProductName))
             {
@@ -80,6 +80,34 @@
             if (inventory.IsExist(ProductName))
             {
             inventory.UpdateProduct(ProductName);
+            }
+            else
+            {
+            Console.WriteLine("The product does not exist.");
+            }
+            break;
+
+            case 4:
+            if (inventory.IsEmpty())
+            {
+                Console.WriteLine("Inventory is empty.");
+                break;
+            }
+
+            string? ProdName;
+            while (true)
+            {
+            Console.WriteLine("Please enter the name of the product to delete:");
+            ProdName = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(ProdName))
+            {
+                break;
+            }
+            Console.WriteLine("Product name cannot be empty.");
+            }
+            if (inventory.IsExist(ProdName))
+            {
+            inventory.DeleteProduct(ProdName);
             }
             else
             {
