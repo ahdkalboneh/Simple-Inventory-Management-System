@@ -14,7 +14,8 @@
        Console.WriteLine("2. View all products.");
        Console.WriteLine("3. Update a product.");
        Console.WriteLine("4. Delete a product.");
-       Console.WriteLine("5. Exit.");
+       Console.WriteLine("5. Search for a product.");
+       Console.WriteLine("6. Exit.");
        Console.WriteLine("-------------------------");  
 
        if (!int.TryParse(Console.ReadLine(), out Choice))
@@ -116,6 +117,28 @@
             break;
 
             case 5:
+            string? ProName;
+            while (true)
+            {
+            Console.WriteLine("Please enter the name of the product for informations:");
+            ProName = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(ProName))
+            {
+                break;
+            }
+            Console.WriteLine("Product name cannot be empty.");
+            }
+            if (inventory.IsExist(ProName))
+            {
+            inventory.SearchProduct(ProName);
+            }
+            else
+            {
+            Console.WriteLine("The product does not exist.");
+            }
+            break;
+
+            case 6:
             Console.WriteLine("Closing the Inventory Management System, Bye.");
             break;
 
@@ -124,7 +147,7 @@
             break;
         }      
         
-       } while (Choice != 5);
+       } while (Choice != 6);
 
     }
 }
