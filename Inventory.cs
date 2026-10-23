@@ -66,6 +66,25 @@ public class Inventory
 
     }
 
+    public void DeleteProduct(string ProductName)
+    {
+        if (this.IsEmpty())
+        {
+            Console.WriteLine("Inventory is empty.");
+            return;
+        }
+
+        Product? Pr = Products.Find(P => P.Name == ProductName);
+        if (Pr == null)
+        {
+        Console.WriteLine("Product not found.");
+        return;
+        }
+
+        Products.Remove(Pr);
+        Console.WriteLine("The Product Deleted Successfully. ✅");   
+    }
+
     public bool IsEmpty()
     {
         if(Products.Count == 0)
